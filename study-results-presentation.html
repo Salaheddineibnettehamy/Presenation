@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Results Presentation with Explanations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #presentation {
+            width: 80%;
+            max-width: 800px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+            line-height: 1.6;
+            text-align: left;
+        }
+        .explanation {
+            font-style: italic;
+            color: #888;
+            margin-top: 10px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="presentation">
+        <h1 id="title">Study Results</h1>
+        <p id="content">Welcome to the presentation of study results.</p>
+        <p id="explanation" class="explanation"></p>
+        <button onclick="prevSlide()">Previous</button>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+
+    <script>
+        const slides = [
+            {
+                title: "Study Results",
+                content: "Welcome to the presentation of study results on narcissism and entrepreneurial intentions.",
+                explanation: "This study explores how narcissism, a personality trait characterized by excessive self-interest and admiration, relates to an individual's intention to start a business."
+            },
+            {
+                title: "Direct Relationship",
+                content: "No significant direct relationship was found between narcissism and entrepreneurial intentions (EI).",
+                explanation: "Entrepreneurial intentions (EI) refer to an individual's desire and plan to start a business. Contrary to some expectations, the study found that narcissism alone does not directly influence these intentions."
+            },
+            {
+                title: "Mediating Factors",
+                content: "Narcissism was positively related to both entrepreneurial alertness (EA) and entrepreneurial passion (EP). Both EA and EP were positively related to EI.",
+                explanation: "Entrepreneurial alertness (EA) is the ability to identify business opportunities. Entrepreneurial passion (EP) is intense positive feelings towards entrepreneurial activities. The study found that narcissism enhances both EA and EP, which in turn increase EI."
+            },
+            {
+                title: "Mediation Effect",
+                content: "EA and EP fully mediated the relationship between narcissism and EI.",
+                explanation: "Full mediation means that narcissism influences EI indirectly through EA and EP. In other words, narcissism increases EA and EP, which then increase EI, rather than narcissism directly increasing EI."
+            },
+            {
+                title: "Moderating Factor",
+                content: "Internal locus of control (ILoC) moderated the relationships between EA and EI, and between EP and EI, strengthening both relationships.",
+                explanation: "Internal locus of control (ILoC) is the belief that one has control over their own life outcomes. The study found that individuals with higher ILoC showed a stronger connection between EA/EP and EI."
+            },
+            {
+                title: "Conclusion",
+                content: "The study provides insights into how narcissism relates to entrepreneurial intentions, particularly in the Vietnamese context, highlighting the importance of EA, EP, and ILoC in this relationship.",
+                explanation: "These findings suggest that while narcissism itself may not directly lead to entrepreneurial intentions, it can enhance factors that do. This is particularly relevant in the Vietnamese cultural context, which may differ from Western settings where much previous research has been conducted."
+            }
+        ];
+
+        let currentSlide = 0;
+
+        function updateSlide() {
+            document.getElementById('title').textContent = slides[currentSlide].title;
+            document.getElementById('content').textContent = slides[currentSlide].content;
+            document.getElementById('explanation').textContent = slides[currentSlide].explanation;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlide();
+        }
+
+        updateSlide();
+    </script>
+</body>
+</html>
